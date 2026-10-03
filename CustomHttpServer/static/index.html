@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в Steam</title>
+    <link rel="stylesheet" href="css/steam.css">
+</head>
+<body>
+
+    <!-- Верхняя навигационная панель -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <a href="https://store.steampowered.com/" class="steam-logo">
+                    <img src="images/logo_steam.png" alt="Steam Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <a href="https://store.steampowered.com/" class="active">МАГАЗИН</a>
+                <a href="https://steamcommunity.com/">СООБЩЕСТВО</a>
+                <a href="https://store.steampowered.com/about/">ИНФОРМАЦИЯ</a>
+                <a href="https://help.steampowered.com/">ПОДДЕРЖКА</a>
+            </nav>
+            <div class="header-actions">
+                <div class="action-row">
+                    <a href="https://store.steampowered.com/about/" class="install-btn">
+                        <img src="images/install-icon.png" alt="icon" class="install-icon">
+                        <span>Установить Steam</span>
+                    </a>
+                    <div class="login-links">
+                        <a href="https://store.steampowered.com/login/">вход</a> <span>|</span> <a href="https://store.steampowered.com/?l=english">язык ▼</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Подменю -->
+    <div class="sub-nav">
+        <div class="sub-nav-content">
+            <a href="https://store.steampowered.com/explore/">Просмотр <span class="arrow">∨</span></a>
+            <a href="https://store.steampowered.com/recommended/">Рекомендации <span class="arrow">∨</span></a>
+            <a href="https://store.steampowered.com/categories/">Категории <span class="arrow">∨</span></a>
+            <a href="https://store.steampowered.com/hardware/">Устройства <span class="arrow">∨</span></a>
+            <a href="https://store.steampowered.com/genres/">Способы игры <span class="arrow">∨</span></a>
+            <a href="https://store.steampowered.com/specials/">Особые разделы <span class="arrow">∨</span></a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск по магазину">
+                <button type="submit">
+                    <svg viewBox="0 0 24 24" fill="white" width="27" height="27"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="login-wrapper">
+            <h1>Вход</h1>
+            
+            <div class="login-box">
+                <div class="login-form-section">
+                    <form action="https://store.steampowered.com/login/" method="get">
+                        <label for="username">ВОЙДИТЕ, ИСПОЛЬЗУЯ ИМЯ АККАУНТА</label>
+                        <input type="text" id="username" class="input-field">
+                        
+                        <label for="password">ПАРОЛЬ</label>
+                        <input type="password" id="password" class="input-field">
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="remember" checked>
+                            <label for="remember">Запомнить меня</label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Войти</button>
+                        
+                        <a href="https://help.steampowered.com/wizard/HelpWithLogin" class="help-link">Помогите, я не могу войти в аккаунт</a>
+                    </form>
+                </div>
+
+                <div class="qr-section">
+                    <label>ИЛИ <strong>QR</strong>-КОД</label>
+                    <div class="qr-code">
+                        <img src="images/qr-vremennuy.png" alt="QR Code">
+                    </div>
+                    <p>
+                        Используйте <a href="https://store.steampowered.com/mobile/">мобильное</a><br>
+                        <a href="https://store.steampowered.com/mobile/">приложение Steam</a>, чтобы войти с<br>
+                        помощью QR-кода
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Блок регистрации -->
+    <div class="bottom-section">
+        <div class="join-steam">
+            <div class="join-left">
+                <h2>Первый раз в Steam?</h2>
+                <a href="https://store.steampowered.com/join/" class="create-account-btn">Создать аккаунт</a>
+            </div>
+
+            <div class="join-right">
+                <p>
+                    Это бесплатно и просто. Откройте для себя
+                    тысячи игр, в которые можно играть с
+                    миллионами новых друзей. <a href="https://store.steampowered.com/about/">Узнайте больше о Steam</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="main-footer">
+        <div class="footer-content">
+
+            <!-- Левая часть: логотипы + копирайт + соцсети -->
+            <div class="footer-col logo-col">
+                <div class="footer-logos">
+                    <a href="https://store.steampowered.com/"><img src="images/logo_steam.png" alt="Steam" class="footer-logo"></a>
+                    <a href="https://www.valvesoftware.com/"><img src="images/logo-valve.png" alt="Valve" class="valve-logo"></a>
+                </div>
+                <p class="copyright">© 2026 Valve Corporation. Все права сохранены.<br>Все торговые марки являются собственностью<br>соответствующих владельцев в США и других странах.<br>Все цены указаны с учётом НДС (если применимо).</p>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/user/SteamworksDev"><img src="images/logo-you.png" alt="YouTube"></a>
+                    <a href="https://x.com/steam"><img src="images/logo-babo.png" alt="X"></a>
+                    <a href="https://www.facebook.com/Steam"><img src="images/logo-face.png" alt="Facebook"></a>
+                    <a href="https://twitter.com/steam"><img src="images/logo-twit.png" alt="Twitter"></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>STEAM</h3>
+                <a href="https://store.steampowered.com/about/">О Steam</a>
+                <a href="https://store.steampowered.com/ssa/">Соглашение подписчика Steam</a>
+                <a href="https://partner.steamgames.com/">Steamworks</a>
+                <a href="https://store.steampowered.com/developer/">Распространение в Steam</a>
+                <a href="https://store.steampowered.com/digitalgiftcards/">Подарочные карты</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>VALVE</h3>
+                <a href="https://www.valvesoftware.com/">О Valve</a>
+                <a href="https://www.valvesoftware.com/en/jobs">Вакансии</a>
+                <a href="https://www.valvesoftware.com/en/hardware">Оборудование</a>
+                <a href="https://www.valvesoftware.com/">Переработка</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>ПРАВОВАЯ ИНФОРМАЦИЯ</h3>
+                <a href="https://store.steampowered.com/privacy_agreement/">Конфиденциальность</a>
+                <a href="https://store.steampowered.com/accessibility/">Доступность</a>
+                <a href="https://store.steampowered.com/legal/">Положения и политика</a>
+                <a href="https://store.steampowered.com/account/cookiepreferences/">Файлы cookie</a>
+                <a href="https://store.steampowered.com/steam_refunds/">Возврат средств</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</h3>
+                <a href="https://store.steampowered.com/about/">Установить Steam</a>
+                <a href="https://store.steampowered.com/mobile/">Установить мобильные приложения</a>
+                <a href="https://help.steampowered.com/">Поддержка</a>
+                <a href="https://store.steampowered.com/account/">Мой аккаунт</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

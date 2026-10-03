@@ -1,0 +1,741 @@
+@font-face {
+    font-family: 'Motiva Sans';
+    src: url('../fonts/MotivaSansRegular.woff.ttf') format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Motiva Sans';
+    src: url('../fonts/MotivaSansBold.woff.ttf') format('truetype');
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Motiva Sans', Arial, sans-serif;
+}
+
+body {
+    background-color: #1b2838;
+    color: #c6d4df;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* --- Верхняя навигация (шапка) --- */
+.main-header {
+    background-color: #171d24;
+    height: 104px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.header-content {
+    width: 960px;
+    max-width: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.steam-logo {
+    margin-left: -130px;
+}
+
+.steam-logo img {
+    height: 45px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 12px;
+    margin-left: -65px;
+}
+
+.main-nav a {
+    color: #e7e9ea;
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+}
+
+.main-nav a:hover {
+    color: #1a9fff;
+}
+
+.main-nav a.active {
+    color: #1a9fff;
+    position: relative;
+}
+
+.main-nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 2px;
+    background-color: #1a9fff;
+    border-radius: 1px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: flex-start;
+    margin-top: -80px;
+    margin-left: auto;
+    margin-right: -110px;
+}
+
+.action-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.install-btn {
+    background-color: #5c7e10;
+    color: #ffffff;
+    padding: 3px 12px;
+    font-size: 11px;
+    border-radius: 0px;
+    font-weight: normal;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.install-btn:hover {
+    background-color: #6b9313;
+    color: #ffffff;
+}
+
+.install-icon {
+    height: 18px;
+    width: auto;
+    display: block;
+}
+
+.login-links {
+    color: #b8b6b4;
+    font-size: 11px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.login-links a {
+    color: #b8b6b4;
+}
+
+.login-links a:hover {
+    color: #ffffff;
+}
+
+/* --- Подменю --- */
+.sub-nav {
+    background: #172433;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+}
+
+.sub-nav-content {
+    width: 960px;
+    max-width: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+    margin-left: -260px;
+}
+
+.sub-nav a {
+    color: #ffffff;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.sub-nav a:hover {
+    color: #ffffff;
+}
+
+.sub-nav a .arrow {
+    font-weight: bold;
+    font-size: 12px;
+    color: #dcdfe0;
+    line-height: 1;
+}
+
+.search-bar {
+    margin-left: 10px;
+    margin-right: -250px;
+    display: flex;
+    background-color: #35404e;
+    border-radius: 2px;
+    overflow: hidden;
+    height: 34px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: 1px solid #515a64;
+    border-right: none;
+    border-radius: 2px 0 0 2px;
+    color: #ffffff;
+    padding: 0 10px;
+    width: 2000px;
+    outline: none;
+    font-size: 13px;
+}
+
+.search-bar input:focus {
+    border: 1px solid #1a9efe;
+    background-color: #242931;
+}
+
+.search-bar input::placeholder {
+    color: #bcc1c4;
+    font-style: italic;
+}
+
+.search-bar button {
+    background-color: #1aa0fe;
+    border: none;
+    padding: 0 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 2px 2px 0;
+}
+
+.search-bar button:hover {
+    background-color: #3bb5ff;
+}
+
+/* --- Основной контент (ФОН STEAM) --- */
+.main-content {
+    background:
+        linear-gradient(rgba(15, 20, 28, 0.7), rgba(15, 20, 28, 0.7)),
+        url('../images/fon-steam.png') center top / cover no-repeat;
+    min-height: 720px;
+    display: flex;
+    justify-content: center;
+    padding-top: 95px;
+    padding-bottom: 70px;
+}
+
+.login-wrapper {
+    width: 960px;
+    max-width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+.login-wrapper h1 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 55px;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-align: left;
+    width: 100%;
+    padding-left: 7%;
+}
+
+.login-box {
+    background-color: #171a21;
+    padding-top: 36px;
+    padding-right: 48px;
+    padding-bottom: 22px;
+    padding-left: 48px;
+    display: flex;
+    gap: 60px;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 870px;
+    margin: 0 auto;
+}
+
+.login-form-section {
+    flex: 1;
+    max-width: 520px;
+}
+
+.login-form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form-section label {
+    color: #1991f1;
+    font-size: 13px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    margin-top: 16px;
+    letter-spacing: 0.4px;
+}
+
+.login-form-section label[for="password"] {
+    color: #a2a2a2;
+    font-weight: normal;
+}
+
+.login-form-section label:first-child {
+    margin-top: 0;
+}
+
+.input-field {
+    background-color: #32353c;
+    border: none;
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 11px 13px;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+    height: 42px;
+}
+
+.input-field:focus {
+    background-color: #3c3f48;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #32343b;
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.checkbox-group input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 11px;
+    border: solid #e1e1e2;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-group label {
+    color: #8c8c8e;
+    font-size: 12px;
+    text-transform: none;
+    margin: 0;
+    cursor: pointer;
+    letter-spacing: 0;
+    font-weight: normal;
+}
+
+.submit-btn {
+    background: linear-gradient(to right, #0abbff 0%, #2e74ff 100%);
+    border: none;
+    border-radius: 2px;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 11px 0;
+    cursor: pointer;
+    font-weight: 400;
+    width: 260px;
+    align-self: center;
+    letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(to right, #2bc9ff 0%, #4585ff 100%);
+}
+
+.help-link {
+    color: #a0a0a0;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 45px;
+    display: block;
+    align-self: center;
+    text-decoration: underline;
+}
+
+.help-link:hover {
+    color: #ffffff;
+}
+
+.qr-section {
+    width: 210px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr-section > label {
+    color: #1991f1;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    align-self: flex-start;
+    letter-spacing: 0.4px;
+    font-weight: normal;
+}
+
+.qr-section > label strong {
+    font-weight: bold;
+}
+
+.qr-code {
+    padding: 0;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    width: 207px;
+    height: 207px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.qr-code img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.qr-section p {
+    color: #a0a1a1;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.qr-section p a {
+    color: #a0a1a1;
+    text-decoration: underline;
+}
+
+.qr-section p a:hover {
+    color: #ffffff;
+}
+
+/* --- Нижняя часть --- */
+.bottom-section {
+    background-color: #171a20;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.join-steam {
+    width: 780px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    text-align: center;
+}
+
+.join-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    min-width: 220px;
+    margin-top: 30px;
+}
+
+.join-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.join-steam h2 {
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0;
+    letter-spacing: -0.5px;
+    text-align: center;
+}
+
+.join-steam p {
+    color: #afafaf;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+    text-align: center;
+    max-width: 320px;
+}
+
+.join-steam p a {
+    color: #afafaf;
+    text-decoration: underline;
+}
+
+.join-steam p a:hover {
+    color: #ffffff;
+}
+
+.create-account-btn {
+    background: linear-gradient(to right, #0abbff 0%, #2e74ff 100%);
+    border: none;
+    color: #ffffff;
+    padding: 8px 22px;
+    border-radius: 2px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    transition: background 0.2s;
+    align-self: center;
+}
+
+.create-account-btn:hover {
+    background: linear-gradient(to right, #2bc9ff 0%, #4585ff 100%);
+}
+
+/* --- Футер --- */
+.main-footer {
+    background-color: #171a20;
+    padding-top: 0;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content {
+    width: 100%;
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 65px;
+}
+
+.footer-col:nth-child(2) {
+    margin-left: 90px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    white-space: nowrap;
+}
+
+.logo-col {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.footer-logos {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.footer-logo {
+    height: 35px;
+    display: block;
+}
+
+.valve-logo {
+    height: 30px;
+    display: block;
+}
+
+.copyright {
+    color: #8f98a0;
+    font-size: 11px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    white-space: nowrap;
+}
+
+.social-icons {
+    display: flex;
+    gap: 22px;
+    margin-top: -10px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons a img {
+    height: 28px;
+    width: auto;
+    display: block;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.social-icons a:hover img {
+    opacity: 1;
+    filter: brightness(0) invert(1);
+}
+
+.footer-col h3 {
+    color: #c1c5c8;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.footer-col a {
+    color: #858c94;
+    font-size: 13px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.footer-col a:hover {
+    color: #5dd9ff;
+}
+/* --- Адаптивность для узких экранов --- */
+
+@media (max-width: 1200px) {
+    .header-content,
+    .sub-nav-content {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .steam-logo,
+    .main-nav,
+    .header-actions,
+    .sub-nav-content,
+    .search-bar {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .header-actions {
+        margin-top: 0;
+    }
+
+    .sub-nav-content {
+        gap: 12px;
+    }
+
+    .search-bar input {
+        width: 200px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-header {
+        height: auto;
+        padding: 12px 0;
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .sub-nav {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .sub-nav-content {
+        flex-wrap: wrap;
+    }
+
+    .login-box {
+        flex-direction: column;
+        gap: 30px;
+        padding: 24px;
+    }
+
+    .qr-section {
+        width: 100%;
+        align-items: center;
+    }
+
+    .join-steam {
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .footer-content {
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .footer-col:nth-child(2) {
+        margin-left: 0;
+    }
+
+    .footer-col {
+        white-space: normal;
+    }
+
+    .copyright {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 600px) {
+    .login-wrapper h1 {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    .social-icons {
+        flex-wrap: wrap;
+    }
+}
