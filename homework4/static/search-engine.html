@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Погода в правом верхнем углу */
+        .weather-widget {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            text-align: right;
+        }
+        .weather-temp { font-size: 22px; font-weight: bold; color: #000; }
+        .weather-city { font-size: 13px; color: #5b6ee1; margin-top: 2px; }
+
+        .container { text-align: center; width: 100%; max-width: 640px; padding: 0 20px; }
+
+        /* Часы — статичные, не идут */
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            color: #000;
+            letter-spacing: 2px;
+        }
+
+        .greeting {
+            color: #5b6ee1;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 8px;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 30px;
+            padding: 12px 25px;
+            width: 500px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 1.1rem;
+            margin-left: 10px;
+            background: transparent;
+            color: #333;
+        }
+
+        .search-box input::placeholder {
+            color: #999;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0 0 0 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Сетка иконок — без подъёма при наведении */
+        .icons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .icon {
+            width: 52px;
+            height: 52px;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            text-decoration: none;
+        }
+
+        .icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .greeting { font-size: 1.1rem; }
+            .icon { width: 42px; height: 42px; border-radius: 12px; }
+            .icon svg { width: 22px; height: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Погода -->
+    <div class="weather-widget">
+        <div class="weather-temp">36°</div>
+        <div class="weather-city">Ahmedabad</div>
+    </div>
+
+    <div class="container">
+        <!-- Время зафиксировано -->
+        <h1>09:11:01</h1>
+        <p class="greeting">Good Morning, Saad.</p>
+
+        <form class="search-box" method="GET" action="/Search/go">
+            <span>🔍</span>
+            <input type="text" name="query" placeholder="Search" required>
+            <button type="submit" aria-label="Найти">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </form>
+
+        <div class="icons">
+
+            <!-- 1. YouTube -->
+            <a href="https://youtube.com" target="_blank" class="icon" title="YouTube">
+                <svg viewBox="0 0 24 24" fill="#FF0000">
+                    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/>
+                </svg>
+            </a>
+
+            <!-- 2. ChatGPT -->
+            <a href="https://chat.openai.com" target="_blank" class="icon" title="ChatGPT">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/>
+                </svg>
+            </a>
+
+            <!-- 3. DGG -->
+            <a href="#" class="icon" title="DGG">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="#4caf50" stroke-width="1.8"/>
+                    <text x="12" y="16" text-anchor="middle" font-size="9" font-weight="bold" fill="#4caf50" font-family="Arial">GG</text>
+                </svg>
+            </a>
+
+            <!-- 4. DeepSeek -->
+            <a href="https://deepseek.com" target="_blank" class="icon" title="DeepSeek">
+                <svg viewBox="0 0 24 24" fill="#4d6bfe">
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1.2 0 2.3-.2 3.4-.6-.3-.3-.6-.7-.9-1-.5-.6-1-1.4-1.4-2.3-.6-1.3-1-2.7-1.2-4.1-.1-.6-.2-1.2-.2-1.8 0-3 1.3-5.7 3.4-7.5.3-.3.7-.5 1-.7C14.6 2.4 13.3 2 12 2zm7.5 4.2c-.4.3-.8.7-1.1 1.2-.8 1.2-1.2 2.7-1.2 4.3 0 2 .6 3.8 1.7 5.2.3.4.7.7 1.1 1 1.2-1.4 1.9-3.2 1.9-5.2 0-2.3-1-4.5-2.4-6.5z"/>
+                </svg>
+            </a>
+
+            <!-- 5. GitHub -->
+            <a href="https://github.com" target="_blank" class="icon" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="#181717">
+                    <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/>
+                </svg>
+            </a>
+
+            <!-- 6. LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" class="icon" title="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="#0a66c2">
+                    <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zm-1.5-10.3a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM19 19h-3v-4.7c0-1.1-.4-1.9-1.4-1.9-1 0-1.6.7-1.6 1.9V19h-3v-9h3v1.3a3 3 0 0 1 2.7-1.5c2 0 3.3 1.3 3.3 4z"/>
+                </svg>
+            </a>
+
+            <!-- 7. Плюс -->
+            <a href="#" class="icon" title="Добавить">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#b0b0b0" stroke-width="2" stroke-linecap="round">
+                    <path d="M12 5v14M5 12h14"/>
+                </svg>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>
