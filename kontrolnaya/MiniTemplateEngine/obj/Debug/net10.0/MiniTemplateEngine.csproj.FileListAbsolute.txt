@@ -1,0 +1,13 @@
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/bin/Debug/net10.0/MiniTemplateEngine.deps.json
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/bin/Debug/net10.0/MiniTemplateEngine.dll
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/bin/Debug/net10.0/MiniTemplateEngine.pdb
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/bin/Debug/net10.0/MiniTemplateEngine.xml
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/obj/Debug/net10.0/MiniTemplateEngine.GeneratedMSBuildEditorConfig.editorconfig
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/obj/Debug/net10.0/MiniTemplateEngine.AssemblyInfoInputs.cache
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/obj/Debug/net10.0/MiniTemplateEngine.AssemblyInfo.cs
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/obj/Debug/net10.0/MiniTemplateEngine.csproj.CoreCompileInputs.cache
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/obj/Debug/net10.0/MiniTemplateEngine.dll
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/obj/Debug/net10.0/refint/MiniTemplateEngine.dll
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/obj/Debug/net10.0/MiniTemplateEngine.xml
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/obj/Debug/net10.0/MiniTemplateEngine.pdb
+/Users/katagoncarenko/Desktop/MyHttpServer/MiniTemplateEngine/obj/Debug/net10.0/ref/MiniTemplateEngine.dll
