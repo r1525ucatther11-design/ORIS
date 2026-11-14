@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — Бункер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #080a0f;
+            --bg-panel: #0d1117;
+            --bg-card: #161b22;
+            --border: #21262d;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #d4a017;
+            --accent-hover: #e8b647;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        a { text-decoration: none; color: inherit; }
+        .login-box {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+        .login-logo {
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        .login-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        
+        .form-group input {
+            width: 100%; 
+            padding: 12px 0; 
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+            font-family: inherit; 
+            font-size: 14px;
+            outline: none;
+        }
+        .form-group input:focus { border-bottom-color: var(--accent); }
+
+        .form-group input::placeholder {
+            color: #5a6373;
+            font-style: italic;
+        }
+
+        .btn-submit {
+            background: var(--accent); color: var(--bg-dark); border: none;
+            padding: 14px; font-weight: 700; border-radius: 6px; cursor: pointer;
+            width: 100%; font-size: 16px; transition: background 0.2s;
+            margin-top: 20px;
+        }
+        .btn-submit:hover { background: var(--accent-hover); }
+        .error-msg {
+            background: #8e0e00; color: white; padding: 10px;
+            border-radius: 6px; margin-bottom: 20px; font-size: 14px;
+        }
+        .back-link {
+            display: block; margin-top: 20px; color: var(--text-muted);
+            font-size: 13px;
+        }
+        .back-link:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <img src="https://i.postimg.cc/HLSGxWKh/bunker.png" alt="Бункер" class="login-logo">
+        <div class="login-title">Вход в админку</div>
+
+        $if (error != "")
+            <div class="error-msg">${error}</div>
+        $endif
+
+        <form method="POST" action="/login">
+            <div class="form-group">
+                <input type="text" name="login" required placeholder="Введите логин">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" required placeholder="Введите пароль">
+            </div>
+            <button type="submit" class="btn-submit">Войти</button>
+        </form>
+        <a href="/" class="back-link">← Вернуться на главную</a>
+    </div>
+</body>
+</html>

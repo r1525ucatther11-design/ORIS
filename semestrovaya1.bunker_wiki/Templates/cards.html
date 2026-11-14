@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все карты — Бункер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #080a0f;
+            --bg-panel: #0d1117;
+            --bg-card: #161b22;
+            --border: #21262d;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #d4a017;
+            --accent-hover: #e8b647;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            line-height: 1.5;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        .navbar {
+            background-color: var(--bg-panel);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-logo { height: 60px; width: auto; margin-right: 50px; }
+        .nav-links { display: flex; gap: 40px; height: 100%; }
+        .nav-links a {
+            font-size: 15px; font-weight: 600; color: var(--text-muted);
+            transition: color 0.2s; display: flex; align-items: center;
+            position: relative; padding-top: 4px;
+        }
+        .nav-links a.active { color: var(--accent); }
+        .nav-links a.active::after {
+            content: ''; position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 3px; background-color: var(--accent);
+        }
+        .nav-links a:hover { color: var(--accent-hover); }
+
+        .layout {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .welcome-box {
+            background: var(--bg-panel); border: 1px solid var(--border);
+            border-radius: 12px; padding: 30px; margin-bottom: 20px;
+            position: relative; overflow: hidden;
+        }
+        .welcome-box::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--accent);
+        }
+        .welcome-title { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+        .welcome-desc { font-size: 15px; color: var(--text-muted); }
+        
+        .search-bar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+        .total-cards { font-size: 20px; color: var(--accent); font-weight: 700; }
+        .search-input {
+            padding: 12px 20px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            border-radius: 8px;
+            width: 300px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .search-input:focus { border-color: var(--accent); outline: none; }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            position: relative; border-radius: 10px; overflow: hidden;
+            aspect-ratio: 2.5 / 3.5;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border);
+            scroll-margin-top: 100px;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            border-color: var(--accent);
+            z-index: 10;
+        }
+
+        .card-bg {
+            position: absolute; inset: 0; background-size: cover;
+            background-position: center; z-index: 1;
+            transition: filter 0.3s, transform 0.3s;
+        }
+        
+        .game-card:hover .card-bg {
+            filter: brightness(0.4);
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(0deg, rgba(8,10,15,0.98) 0%, rgba(8,10,15,0.6) 40%, transparent 70%);
+            z-index: 2;
+        }
+
+        .card-content {
+            position: relative; z-index: 3; padding: 20px;
+            transform: translateY(-1rem);
+        }
+
+        .card-title {
+            font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        .card-cat {
+            font-size: 11px; color: var(--accent); text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; display: block;
+        }
+        
+        .card-desc {
+            font-size: 12px; color: #c9d1d9; line-height: 1.4;
+            display: -webkit-box; -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical; overflow: hidden;
+            transition: all 0.3s ease;
+            max-height: 50px;
+        }
+
+        .game-card:hover .card-desc {
+            -webkit-line-clamp: unset;
+            max-height: 200px;
+        }
+
+        .category-header {
+            font-size: 24px;
+            color: var(--accent);
+            margin: 40px 0 20px 0;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            scroll-margin-top: 100px;
+        }
+
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+        
+        .sidebar-inner {
+            position: sticky;
+            top: 110px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-list {
+            list-style: none;
+        }
+        .sidebar-list li {
+            margin-bottom: 5px;
+        }
+        .sidebar-list a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .sidebar-list a:hover {
+            background: rgba(212, 160, 23, 0.1);
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 1024px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .sidebar-inner { position: static; }
+            .cards-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+            .search-bar-container { flex-direction: column; align-items: flex-start; }
+            .search-input { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-inner">
+            <a href="/">
+                <img src="https://i.postimg.cc/HLSGxWKh/bunker.png" alt="Бункер" class="nav-logo">
+            </a>
+            <nav class="nav-links">
+                <a href="/">Главная</a>
+                <a href="/cards" class="active">Карты</a>
+                <a href="/rules">Правила</a>
+                <a href="/admin">Админка</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="layout">
+        <div class="main-content">
+            <div class="welcome-box">
+                <h1 class="welcome-title">Привет, игрок!</h1>
+                <p class="welcome-desc">Здесь ты можешь изучить все карточки игры «Бункер».</p>
+            </div>
+
+            <div class="search-bar-container">
+                <div class="total-cards">
+                    Всего в базе: ${Count} карт
+                </div>
+                <input type="text" id="searchCards" class="search-input" placeholder="Поиск карты по названию...">
+            </div>
+
+            <div id="cards-container">
+                ${RenderedCards}
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-inner">
+                <div class="sidebar-title">Категории карт</div>
+                <ul class="sidebar-list">
+                    <li><a href="#Профессия">Профессии</a></li>
+                    <li><a href="#Биология">Биология</a></li>
+                    <li><a href="#Здоровье">Здоровье</a></li>
+                    <li><a href="#Хобби">Хобби</a></li>
+                    <li><a href="#Багаж">Багаж</a></li>
+                    <li><a href="#Факты">Факты</a></li>
+                    <li><a href="#Особые условия">Особые условия</a></li>
+                    <li><a href="#Бункер">Бункер</a></li>
+                    <li><a href="#Катастрофа">Катастрофы</a></li>
+                    <li><a href="#Угроза">Угрозы</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        document.getElementById('searchCards').addEventListener('keyup', function() {
+            var filter = this.value.toLowerCase();
+            var cards = document.querySelectorAll('.game-card');
+            var headers = document.querySelectorAll('.category-header');
+
+            cards.forEach(function(card) {
+                var title = card.querySelector('.card-title').textContent.toLowerCase();
+                if (title.includes(filter)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            headers.forEach(function(header) {
+                var grid = header.nextElementSibling;
+                var visibleCards = 0;
+                if (grid) {
+                    grid.querySelectorAll('.game-card').forEach(function(card) {
+                        if (card.style.display !== 'none') visibleCards++;
+                    });
+                }
+                if (visibleCards === 0) {
+                    header.style.display = 'none';
+                    if (grid) grid.style.display = 'none';
+                } else {
+                    header.style.display = '';
+                    if (grid) grid.style.display = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
