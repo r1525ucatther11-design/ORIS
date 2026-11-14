@@ -1,0 +1,15 @@
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/bin/Debug/net7.0/MiniHttpServer.Framework.deps.json
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/bin/Debug/net7.0/MiniHttpServer.Framework.dll
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/bin/Debug/net7.0/MiniHttpServer.Framework.pdb
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/bin/Debug/net7.0/MiniHttpServer.HtmlTemplating.dll
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/bin/Debug/net7.0/MiniHttpServer.HtmlTemplating.pdb
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/obj/Debug/net7.0/MiniHttpServer.Framework.csproj.AssemblyReference.cache
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/obj/Debug/net7.0/MiniHttpServer.Framework.GeneratedMSBuildEditorConfig.editorconfig
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/obj/Debug/net7.0/MiniHttpServer.Framework.AssemblyInfoInputs.cache
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/obj/Debug/net7.0/MiniHttpServer.Framework.AssemblyInfo.cs
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/obj/Debug/net7.0/MiniHttpServer.Framework.csproj.CoreCompileInputs.cache
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/obj/Debug/net7.0/MiniHttp.D7E1F248.Up2Date
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/obj/Debug/net7.0/MiniHttpServer.Framework.dll
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/obj/Debug/net7.0/refint/MiniHttpServer.Framework.dll
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/obj/Debug/net7.0/MiniHttpServer.Framework.pdb
+/Users/katagoncarenko/Desktop/Homework/Homework_6/MiniHttpServer.Framework/obj/Debug/net7.0/ref/MiniHttpServer.Framework.dll
